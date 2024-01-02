@@ -1,7 +1,8 @@
 import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/feature/presentation/view/home_screen.dart';
-import 'package:bookly_app/feature/presentation/view/splach_screen.dart';
+import 'package:bookly_app/feature/home/presentation/view/home_screen.dart';
+import 'package:bookly_app/feature/splash/presentation/view/splach_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: kPrimaryColor,
       ),

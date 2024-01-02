@@ -1,6 +1,8 @@
-import 'package:bookly_app/feature/presentation/view/home_screen.dart';
-import 'package:bookly_app/feature/presentation/view/widget/splash_screen_body.dart';
+import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/feature/home/presentation/view/home_screen.dart';
+import 'package:bookly_app/feature/splash/presentation/view/widget/splash_screen_body.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = 'SplashScreen';
@@ -13,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    splashDuration();
+    navigateToHome();
     super.initState();
   }
 
@@ -24,12 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  void splashDuration() {
+  void navigateToHome() {
     Future.delayed(
         const Duration(
           seconds: 3,
         ), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+      Get.to(() => const HomeScreen(),
+          transition: Transition.fadeIn, duration: kTranstionDuration);
     });
   }
 }
