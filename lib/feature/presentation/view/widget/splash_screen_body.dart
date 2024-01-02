@@ -12,6 +12,7 @@ class SplashScreenBody extends StatelessWidget {
         fontSize: 20.0,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(AssetsData.splashLogo),
           AnimatedTextKit(

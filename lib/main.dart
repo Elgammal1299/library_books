@@ -1,4 +1,5 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/feature/presentation/view/home_screen.dart';
 import 'package:bookly_app/feature/presentation/view/splach_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
     );
   }
