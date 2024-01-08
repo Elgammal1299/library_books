@@ -22,14 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SplashScreenBody(),
+      body: Center(child: SplashScreenBody()),
     );
   }
 
   void navigateToHome() {
     Future.delayed(
         const Duration(
-          seconds: 3,
+          seconds: 4,
         ), () {
       Get.to(() => const HomeScreen(),
           transition: Transition.fadeIn, duration: kTranstionDuration);
