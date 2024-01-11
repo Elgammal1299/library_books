@@ -1,10 +1,9 @@
 import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/feature/home/presentation/view/book_details_screen.dart';
 import 'package:bookly_app/feature/home/presentation/view/widget/book_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItme extends StatelessWidget {
   const BestSellerListViewItme({super.key});
@@ -13,7 +12,7 @@ class BestSellerListViewItme extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kDetailsScreen);
+        Navigator.pushNamed(context, BookDetailsScreen.routeName);
       },
       child: SizedBox(
         height: 150,

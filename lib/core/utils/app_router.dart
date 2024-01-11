@@ -5,8 +5,9 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const kHomeScreen = '/home screen';
-  static const kDetailsScreen = '/home  details screen';
-  static final GoRouter router = GoRouter(
+  static const kDetailsScreen = '/home details screen';
+  static GoRouter router = GoRouter(
+    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',
