@@ -1,8 +1,8 @@
 import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/feature/home/presentation/view/book_details_screen.dart';
 import 'package:bookly_app/feature/home/presentation/view/widget/book_rating.dart';
+import 'package:bookly_app/feature/home/presentation/view/widget/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItme extends StatelessWidget {
@@ -18,21 +18,7 @@ class BestSellerListViewItme extends StatelessWidget {
         height: 150,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.7 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Colors.red,
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      AssetsData.itemImage,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            const CustomBookImage(),
             const SizedBox(
               width: 30,
             ),
