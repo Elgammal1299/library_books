@@ -1,6 +1,7 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/feature/home/presentation/view/book_details_screen.dart';
 import 'package:bookly_app/feature/home/presentation/view/home_screen.dart';
+import 'package:bookly_app/feature/search/presentation/view/search_screen.dart';
 import 'package:bookly_app/feature/splash/presentation/view/splach_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         SplashScreen.routeName: (context) => const SplashScreen(),
         BookDetailsScreen.routeName: (context) => const BookDetailsScreen(),
+        SearchScreen.routeName: (context) => const SearchScreen(),
       },
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
