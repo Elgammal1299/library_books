@@ -10,7 +10,7 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl(this.apiServices);
   @override
-  Future<Either<Failuer, BooksModel>> fetchHooksHome() async {
+  Future<Either<Failuer, BooksModel>> fetchBooksHome() async {
     try {
       var json = await apiServices.get(
           endPoint:
