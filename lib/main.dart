@@ -4,6 +4,8 @@ import 'package:bookly_app/feature/home/data/repo/repo_home_impl.dart';
 import 'package:bookly_app/feature/home/presentation/view/book_details_screen.dart';
 import 'package:bookly_app/feature/home/presentation/view/home_screen.dart';
 import 'package:bookly_app/feature/home/presentation/view_model/featured_book_cubit/featured_book_cubit.dart';
+import 'package:bookly_app/feature/home/presentation/view_model/newset_books_cubit/newset_books_cubit.dart';
+
 import 'package:bookly_app/feature/search/presentation/view/search_screen.dart';
 import 'package:bookly_app/feature/splash/presentation/view/splach_screen.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,11 @@ class BooklyApp extends StatelessWidget {
           create: (BuildContext context) => FeaturedBookCubit(
             getIt.get<HomeRepoImpl>(),
           )..fetchFeatureBooks(),
+        ),
+        BlocProvider<NewsetBooksCubit>(
+          create: (BuildContext context) => NewsetBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchNewesetBooks(),
         ),
       ],
       child: MaterialApp(

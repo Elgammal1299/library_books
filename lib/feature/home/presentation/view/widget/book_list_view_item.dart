@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:bookly_app/feature/home/data/model/book/item.model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bookly_app/constants.dart';
@@ -8,8 +9,10 @@ import 'package:bookly_app/feature/home/presentation/view/widget/book_rating.dar
 import 'package:bookly_app/feature/home/presentation/view/widget/custom_book_image.dart';
 
 class BookListViewItem extends StatelessWidget {
+  final Item itemModel;
   const BookListViewItem({
     super.key,
+    required this.itemModel,
   });
 
   @override
@@ -22,9 +25,8 @@ class BookListViewItem extends StatelessWidget {
         height: 150,
         child: Row(
           children: [
-            const CustomBookImage(
-                imageUrl:
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvEw427TqzDpZ5rph6PwwhxmazsLAiI0mzhA&usqp=CAU'),
+            CustomBookImage(
+                imageUrl: itemModel.volumeInfo?.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,
             ),
@@ -35,7 +37,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      itemModel.volumeInfo!.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20
@@ -45,8 +47,8 @@ class BookListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    itemModel.volumeInfo!.authors![0],
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -56,12 +58,15 @@ class BookListViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '19.99 €',
+                        'Free',
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       // const Spacer(),
-                      const BookRating(),
+                      BookRating(
+                        count: itemModel.volumeInfo?.averageRating ?? 5.5,
+                        rating: itemModel.volumeInfo?.ratingsCount ?? 250,
+                      ),
                     ],
                   )
                 ],
