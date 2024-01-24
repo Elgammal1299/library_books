@@ -1,13 +1,20 @@
+import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/feature/home/data/model/book/item.model.dart';
+import 'package:bookly_app/feature/home/data/repo/repo_home_impl.dart';
 import 'package:bookly_app/feature/home/presentation/view/widget/book_details_view_body.dart';
+import 'package:bookly_app/feature/home/presentation/view_model/smila_book/smililar_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookDetailsScreen extends StatelessWidget {
   static const String routeName = 'detailsscreen';
-
-  const BookDetailsScreen({super.key});
+  const BookDetailsScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    var arg = ModalRoute.of(context)!.settings.arguments as Item;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,7 +30,12 @@ class BookDetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const BookDetailsViewBody(),
+      body: BlocProvider(
+        create: (context) => SmililarBooksCubit(
+          getIt.get<HomeRepoImpl>(),
+        ),
+        child: BookDetailsViewBody(items: arg),
+      ),
     );
   }
 }

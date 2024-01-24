@@ -19,7 +19,8 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, BookDetailsScreen.routeName);
+        Navigator.pushNamed(context, BookDetailsScreen.routeName,
+            arguments: itemModel);
       },
       child: SizedBox(
         height: 150,
